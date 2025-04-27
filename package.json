@@ -16,8 +16,9 @@
   "main": "./build/index.js",
   "scripts": {
     "build": "rm -rf ./build && tsc",
-    "dev": "nodemon ",
+    "dev": "nodemon",
     "start": "npm run build && node .",
+    "db": "mongod --dbpath=/Users/pranav-rustagi/mongodb_data/db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -32,6 +33,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "firebase": "^11.4.0"
+    "firebase": "^11.4.0",
+    "firebase-admin": "^13.3.0",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2"
   }
 }
