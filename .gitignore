@@ -5,4 +5,7 @@ yarn.lock
 
 build
 
-*.env
+.env
+.env.*
+
+private
