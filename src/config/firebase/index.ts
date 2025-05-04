@@ -16,6 +16,4 @@ if (!getApps().length) {
 
 const adminAuth = getAuth();
 
-console.log("\nFirebase initialized");
-
 export { adminAuth };

@@ -5,7 +5,6 @@ export interface UserInterface {
     username: string;
     avatar_url: string;
     about: string;
-    onboarded: boolean;
     created_at: Date;
 }
 
@@ -27,11 +26,6 @@ const UserSchema = new mongoose.Schema<UserInterface>({
     about: {
         type: String,
         required: false,
-    },
-    onboarded: {
-        type: Boolean,
-        required: true,
-        default: false,
     },
     created_at: {
         type: Date,
