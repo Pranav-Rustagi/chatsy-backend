@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { checkGoogleUser } from "../controllers/auth";
+import { checkExistingUser, saveNewUserInfo } from "../controllers/auth";
 
 const authRouter = Router();
 
-authRouter.post("/check-google-user", checkGoogleUser);
+authRouter.post("/check-existing-user", checkExistingUser);
+authRouter.post("/save-new-user-info", saveNewUserInfo);
 
 export default authRouter;
