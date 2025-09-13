@@ -39,9 +39,9 @@ const saveNewUserInfo = async (req: Request, res: Response, next: NextFunction) 
     console.log("saveNewUserInfo: start\n");
     
     try {
-        const { email, username, avatar_url, about } = req.body;
+        const { email, username, avatarUrl, description } = req.body;
 
-        await User.create({ email, username, avatar_url, about });
+        await User.create({ email, username, avatarUrl, description });
 
         const message = "User created successfully";
         
