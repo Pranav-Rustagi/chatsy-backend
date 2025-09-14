@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { User } from "../models/user";
 import { adminAuth } from "../config/firebase";
-import responseHandler from "../response/responseHandler";
+import { User } from "../models";
+import { responseHandler } from "../response";
+import { logFunctionEnd, logFunctionStart } from "../utilities";
 
 
 const checkExistingUser = async (req: Request, res: Response, next: NextFunction) => {
-    console.log("\n===========================================\n");
-    console.log("checkExistingUser: start\n");
+    logFunctionStart("checkExistingUser");
 
     try {
         const { token } = req.body;
@@ -24,8 +24,8 @@ const checkExistingUser = async (req: Request, res: Response, next: NextFunction
         const message = user !== null ? "\nUser exists: " : "\nUser does not exist";
 
         console.log(message, user || "");
-        console.log("\ncheckExistingUser: end");
-        console.log("\n===========================================\n");
+
+        logFunctionEnd("checkExistingUser");
         
         responseHandler({ res, data: { user }, message });
     } catch (error) {
@@ -35,8 +35,7 @@ const checkExistingUser = async (req: Request, res: Response, next: NextFunction
 
 
 const saveNewUserInfo = async (req: Request, res: Response, next: NextFunction) => {
-    console.log("\n===========================================\n");
-    console.log("saveNewUserInfo: start\n");
+    logFunctionStart("saveNewUserInfo");
     
     try {
         const { email, username, avatarUrl, description } = req.body;
@@ -46,8 +45,8 @@ const saveNewUserInfo = async (req: Request, res: Response, next: NextFunction) 
         const message = "User created successfully";
         
         console.log(message);
-        console.log("\nsaveNewUserInfo: end");
-        console.log("\n===========================================\n");
+        
+        logFunctionEnd("saveNewUserInfo");
         
         responseHandler({ res, message });
     } catch (error) {
