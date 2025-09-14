@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { checkExistingUser, saveNewUserInfo } from "../controllers/auth";
+import { checkExistingUser, saveNewUserInfo } from "../controllers";
 
 const authRouter = Router();
 
